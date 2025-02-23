@@ -1,0 +1,46 @@
+:root{
+    color-scheme: dark;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+main{
+    margin: auto;
+    max-width: 480px;
+}
+h1, h2{
+    font-weight: normal;
+}
+
+a{
+    color: #4af;
+}
+
+input[type="File"]{
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+.Warning{
+    padding: 4px;
+    border: 1px solid red;
+    background-color: rgba(255, 0, 0, 0.205);
+    border-radius: 4px;
+}
+
+.Notice{
+    padding: 4px;
+    border: 1px solid blue;
+    background-color: rgba(0, 0, 255, 0.205);
+    border-radius: 4px;
+}
+
+.Output{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.Output span{
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+}
