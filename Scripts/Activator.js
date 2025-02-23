@@ -30,7 +30,7 @@ function Downl(text, filename){
     if (text == undefined || text == null || text == ''){return;}
     const blob = new Blob([text], {type: "text/html"})
     const blobUrl = URL.createObjectURL(blob)
-    Output(`Download ${filename} (${(blob.size / 1000 / 1000).toFixed(2)}MB)`, "DownloadLink", blobUrl, blob.name)
+    Output(`Download ${filename} (${(blob.size / 1000 / 1000).toFixed(2)}MB)`, "DownloadLink", blobUrl, filename)
     const a = document.createElement('a')
     a.download = filename
     a.href = blobUrl
