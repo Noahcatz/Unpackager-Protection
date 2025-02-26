@@ -38,7 +38,7 @@ function Downl(text, filename){
     a.remove()
 }
 
-fetch("/Unpackager-Protection/websiteStatus.txt")
+/* didnt work :( fetch("/Unpackager-Protection/websiteStatus.txt")
 .then((response) => response.text().then((value) => {if(!value == 'Disabled'){document.querySelector('main').removeAttribute('hidden')}else{
     const div = document.createElement('div')
     div.style = 'margin: 0 auto'
@@ -51,7 +51,8 @@ fetch("/Unpackager-Protection/websiteStatus.txt")
     header2.textContent = "Check back later!"
     div.append(header2)
     document.body.append(div)
-}}))
+}})) */
+document.querySelector('main').removeAttribute('hidden')
 
 FileInputButton.addEventListener('input', function(event){
     if (FileInputButton.files.length == 0){
