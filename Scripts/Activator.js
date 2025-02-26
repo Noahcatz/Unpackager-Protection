@@ -38,7 +38,7 @@ function Downl(text, filename){
     a.remove()
 }
 
-fetch("/websiteStatus.txt")
+fetch("/Unpackager-Protection/websiteStatus.txt")
 .then((response) => response.text())
 .then((value) => {if(!value == 'Disabled'){document.querySelector('main').removeAttribute('hidden')}else{
     const div = document.createElement('div')
