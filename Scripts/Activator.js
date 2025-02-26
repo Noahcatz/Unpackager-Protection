@@ -1,6 +1,6 @@
 const FileInputButton = document.getElementById("FileInput")
 
-const DownloadFile = false //For developing purposes
+const DownloadFile = true //For developing purposes
 
 function Output(text, type, href, downloadname){
     let outputdiv = document.querySelector(".Output")
