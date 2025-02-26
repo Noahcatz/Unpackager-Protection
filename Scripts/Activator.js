@@ -1,6 +1,6 @@
 const FileInputButton = document.getElementById("FileInput")
 
-const DownloadFile = true //For developing purposes
+const DownloadFile = false //For developing purposes
 
 function Output(text, type, href, downloadname){
     let outputdiv = document.querySelector(".Output")
@@ -38,9 +38,9 @@ function Downl(text, filename){
     a.remove()
 }
 
-fetch("/Unpackager-Protection/websiteStatus.txt")
+fetch("/websiteStatus.txt")
 .then((response) => response.text())
-.then((value) => {if(value == 'Active'){document.querySelector('main').removeAttribute('hidden')}else{
+.then((value) => {if(!value == 'Disabled'){document.querySelector('main').removeAttribute('hidden')}else{
     const div = document.createElement('div')
     div.style = 'margin: 0 auto'
     const header = document.createElement('h1')
@@ -64,7 +64,11 @@ FileInputButton.addEventListener('input', function(event){
             if(DownloadFile){
                 Obf(getfile.result, document.querySelector(".LevelDropdown").value).then((downloadresult) => Downl(downloadresult, FileInputButton.files[0].name))
             }else {
-                Obf(getfile.result, document.querySelector(".LevelDropdown").value)
+                Obf(getfile.result, document.querySelector(".LevelDropdown").value).then((html) => {
+                    const blob = new Blob([html], {type: "text/html"})
+                    const bloburl = URL.createObjectURL(blob)
+                    window.open(bloburl)
+                })
             }
         }
     Output(`Processing ${FileInputButton.files[0].name}...`, "Title")
