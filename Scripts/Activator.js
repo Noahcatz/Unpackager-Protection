@@ -38,6 +38,22 @@ function Downl(text, filename){
     a.remove()
 }
 
+fetch("/websiteStatus.txt")
+.then((response) => response.text())
+.then((value) => {if(value == 'Active'){document.querySelector('main').removeAttribute('hidden')}else{
+    const div = document.createElement('div')
+    div.style = 'margin: 0 auto'
+    const header = document.createElement('h1')
+    header.style = 'text-align: center'
+    header.textContent = "🛠 Website is under maintenance 🛠"
+    div.append(header)
+    const header2 = document.createElement('h3')
+    header2.style = 'text-align: center'
+    header2.textContent = "Check back later!"
+    div.append(header2)
+    document.body.append(div)
+}})
+
 FileInputButton.addEventListener('input', function(event){
     if (FileInputButton.files.length == 0){
         alert("Please select a packaged project")
